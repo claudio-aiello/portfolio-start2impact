@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<title>Claudio Aiello Portfolio</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+<style>
+/*Animazione*/
+@-webkit-keyframes pulse {from {-webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1)} 50% {-webkit-transform: scale3d(1.05, 1.05, 1.05); transform: scale3d(1.05, 1.05, 1.05)} to {-webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1)}}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+}
+
+.mobile-menu {
+  overflow: hidden;
+  background-color: transparent;
+  width: 100%;
+}
+
+.mobile-menu #myLinks {
+  display: none;
+}
+
+.mobile-menu a {
+  color: #d59221;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.mobile-menu a.icon {
+  background: white;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.active {
+  background-color:white;
+  color: white;
+  height: 51px;
+}
+
+.menu {
+	background: #fff;
+	color: #a6a6a6;
+	cursor: default;
+	height: 5.25em;
+	left: 0;
+	line-height: 5.25em;
+	position: fixed;
+	text-align: right;
+	top: 0;
+	width: 100%;
+	z-index: 10001;
+}
+
+#mobile-logo {
+  height: 5em;
+}
+
+.submenu {
+	display: flex;
+	justify-content: space-between;
+	line-height: 25px;
+	margin: 0 auto;
+	max-width: 960px;
+}
+
+.submenu nav li {
+	display: inline;
+    margin-left: 10px;
+}
+
+.submenu nav li a {
+    color: #d59221;
+    text-decoration: none; 
+} 
+
+.submenu nav li:first-of-type {
+	margin-left: 0;
+}
+
+.submenu .logo, .submenu nav {
+	  display: flex;
+	  align-items: center;
+}
+
+.submenu .logo img {
+	  height: 5em;
+}	
+
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bgimg-1 {
+  background-image: url("images/Claudio128.jpg");
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#chisono {
+  color: #777;
+  background-color:white;
+  text-align:center;
+  padding:50px 80px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+#chisono-copy {
+  padding-top: 10%;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#chisono img {
+  width: 30%;
+  height: auto;
+  margin: 30px;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bgimg-2 {
+  background-image: url("images/Claudio137.jpg");
+  min-height: 400px;
+}
+
+#passioni-content {
+  color:#ddd;
+  text-align:center;
+  padding:50px 80px;
+  text-align: justify;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.bgimg-3 {
+  background-image: url("images/Claudio13.jpg");
+  min-height: 400px;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption img {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.caption img:hover {
+	animation: pulse 1s ease-out;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  font-style: italic;
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+}
+
+#progetti-content {
+  color:#ddd;
+  background-color:#282E34;
+  text-align:center;
+  padding:50px 80px;
+  text-align: justify;
+}
+
+.cards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.card {
+  padding: 10px;
+  width: 30%;
+  height: 60%;
+  background-color: lightgrey;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card img {
+  width: 100%;
+
+  border-radius: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card h2 {
+  color: white;
+  text-align: center;
+}
+
+.card div {
+  color: white;
+  text-align: center;
+}
+
+.card a {
+  color: white;
+  background-color: #d59221;
+  padding: 7px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+/* Contatti form*/
+input[type=text], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #d59221;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.formcontainer {
+  height: 70%;
+  width: 60%;
+  border-radius: 25px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.footer {
+	position: relative;
+	height: 100px;
+	width: 100%;
+	background-color: #141414;
+	color: white;
+	text-align: center;
+}
+
+.footer-links {
+  padding: 25px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.footer-links a {
+  padding: 0 20px;
+  color: white;
+}
+
+.footer-links a:hover {
+  color: #d59221;
+}
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 1015px) {
+  #chisono img {
+    width: 80%;
+  }
+  #chisono {
+    flex-flow: row wrap;
+  }
+  #chisono-copy {
+    padding-top: 0;
+    padding: 10px;
+  }
+  #passioni-content {
+    flex-flow: column;
+  }
+  .cards {
+    justify-content: center;
+  }
+  .card {
+    width: 60%;
+    margin: 10px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .card {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #chisono {
+    padding: 15px;
+  }
+  #passioni-content {
+    padding: 35px;
+  }
+  .card {
+    width: 100%;
+  }
+  #progetti-content {
+    padding: 15px;  
+  }
+  .submenu .logo {
+    display: none;
+  }
+  .submenu ul {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 501px) {
+  .mobile-menu {
+    display: none;
+  }
+  #mobile-logo {
+    display: none;
+  } 
+}
+
+@media only screen and (max-device-width: 1024px) {
+  .bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: scroll;
+  }
+}
+
+</style>
+
+<script>
+
+  function myFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+
+</script>
+
+</head>
+<body>
+
+  <div class="menu">
+    <div class="submenu">
+      <div class="logo"><a href="index.html"><img src="images/Claudio-Aiello.png"></a></div>
+      <a href="index.html"><img id="mobile-logo" src="images/Claudio-Aiello.png"></a>
+      <div class="mobile-menu">
+        
+        <a href="#home" class="active"></a>
+        <!-- Navigation links (hidden by default) -->
+        <div id="myLinks">
+          <a href="#chisono">Chi sono</a>
+          <a href="#progetti">I miei progetti</a>
+          <a href="#contatti">Contattami</a>
+        </div>
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="bi bi-list"></i>
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#chisono">Chi sono</a></li>
+          <li><a href="#progetti">I miei progetti</a></li>
+          <li><a href="#contatti">Contattami</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>  
+
+<div class="bgimg-1">
+  <div class="caption">
+    <picture>
+      <source media='(min-width: 960px)'
+			  srcset='images/Claudio-Aiello-white.png'/>
+	    <source media='(min-width: 600px)'
+              srcset='images/Claudio-Aiellox400.png'/>
+      <source media='(max-width: 599px)'
+              srcset='images/Claudio-Aiellox300.png'/>
+      <img src='img/Claudio-Aiello-white.png'/>
+    </picture>
+  </div>
+</div>
+
+<div id="chisono">
+  <img src="images/Claudio-Aiello-Profilo.JPG">
+  <div id="chisono-copy">
+    <h3 style="text-align:center;">Chi sono</h3>
+    <p style="text-align: center;">Mi chiamo Claudio Aiello, sono un musicista, suono il violoncello, mi sono diplomato al Conservatorio "Santa Cecilia" di Roma e sono appassionato di informatica fin da bambino.</p>
+  </div>
+</div>
+
+<div class="bgimg-2">
+
+</div>
+
+<div style="position:relative; background-color:#282E34;">
+  <div id="passioni-content">
+    <h3 style="color: #d59221; text-align: center;">Le mie passioni</h3>
+    <p style="text-align: center;">Le mie due passioni sono la musica e l'informatica, sono il co-fondatore dell'Orchestra Ludi Sonores e ho da poco pubblicato la mia prima app per Android e iOS</p>
+  </div>
+</div>
+
+<div class="bgimg-3">
+
+</div>
+
+<div id="progetti" style="position:relative;">
+  <div id="progetti-content">
+    <h3 style="color: #d59221; text-align: center;">I miei progetti</h3>  
+    <p style="text-align: center; padding-bottom: 30px;">Questi sono i miei progetti in ambito musicale e informatico</p>
+    <div class="cards">
+      <div class="card">
+        <img src="images/Orchestra-Ludi-Sonores.jpg">
+        <h2>Orchestra Ludi Sonores</h2>
+        <div>
+          <a href="https://www.facebook.com/ludisonores">Scopri di più</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/Dancla.png">
+        <h2>Dancla App</h2>
+        <div>
+          <a href="https://www.dancla.app">Scopri di più</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bgimg-1">
+  <a name="contatti">
+    <form action="/action_page.php" class="formcontainer">
+  </a>
+    <h1>Contattami</h1>
+
+    <label for="fname">Nome</label>
+    <input type="text" id="fname" name="firstname" placeholder="Il tuo nome..">
+
+    <label for="lname">Cognome</label>
+    <input type="text" id="lname" name="lastname" placeholder="Il tuo cognome..">
+
+    <label for="subject">Messaggio</label>
+    <textarea id="subject" name="subject" placeholder="Scrivi il tuo messaggio.." style="height:200px"></textarea>
+
+    <input type="submit" value="Invia">
+  </form>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://www.facebook.com/claudio.aiello.5/" class="bi bi-facebook" style="font-size: 28px;"></a>
+    <a href="https://www.instagram.com/claudio.cello2/" class="bi bi-instagram" style="font-size: 28px;"></a>
+    <a href="mailto:claudiocello95@gmail.com" class="bi bi-envelope-fill" style="font-size: 28px;"></a>
+  </div>
+</div>
+
+
+</body>
+</html>
